@@ -1,0 +1,29 @@
+<div>
+  <div [hidden]="submitted">
+    <h1>Login Form</h1>
+    <form  (ngSubmit)="onSubmit()" #heroForm="ngForm" #spy>
+      <div>
+        <label for="username">User Name</label>
+        <input id="username"
+               type="text"
+               required
+               [(ngModel)]="username"
+               placeholder="(username)"
+               ngControl="username" #spy
+        >
+        <br>TODO: remove this: {{spy.className}}
+        <div >
+          Name is required
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password"
+               type="password"
+               required
+               [(ngModel)]="password">
+      </div>
+      <button type="submit" >Login</button>
+    </form>
+  </div>
+</div>
