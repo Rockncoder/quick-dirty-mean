@@ -396,7 +396,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/http/testing', 'rxj
                     this.backend = backend;
                     this.backend.connections.subscribe(function (c) {
                         var singleQuizMatcher = /api\/quiz\/([0-9a-f]+)/i;
-                        console.log("URL: " + c.request.url);
+                        console.log("Fake Webserver - URL: " + c.request.url);
                         if (c.request.url === "api/quizzes" && c.request.method === 0) {
                             c.mockRespond(new http_1.Response({
                                 body: JSON.stringify(quizList)
@@ -414,9 +414,10 @@ System.register(['angular2/core', 'angular2/http', 'angular2/http/testing', 'rxj
                 }
                 FakeWebServer = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [testing_1.MockBackend])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof testing_1.MockBackend !== 'undefined' && testing_1.MockBackend) === 'function' && _a) || Object])
                 ], FakeWebServer);
                 return FakeWebServer;
+                var _a;
             }());
             exports_1("FakeWebServer", FakeWebServer);
         }

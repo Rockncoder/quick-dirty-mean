@@ -93,10 +93,6 @@ System.register(['angular2/core', 'angular2/router', './quiz-service', './Seek']
                         _this.showAnswers = true;
                         _this.seekToQuestion(Seek_1.Seek.Beginning);
                     };
-                    // reset the path back to the beginning
-                    this.exit = function () {
-                        _this._router.navigate(['/about']);
-                    };
                     this.position = new Position();
                 }
                 PlayerComponent.prototype.ngOnInit = function () {
@@ -164,9 +160,10 @@ System.register(['angular2/core', 'angular2/router', './quiz-service', './Seek']
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [quiz_service_1.QuizService, router_1.ROUTER_PROVIDERS]
                     }), 
-                    __metadata('design:paramtypes', [quiz_service_1.QuizService, router_1.Location, router_1.RouteParams, router_1.Router])
+                    __metadata('design:paramtypes', [quiz_service_1.QuizService, (typeof (_a = typeof router_1.Location !== 'undefined' && router_1.Location) === 'function' && _a) || Object, (typeof (_b = typeof router_1.RouteParams !== 'undefined' && router_1.RouteParams) === 'function' && _b) || Object, (typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object])
                 ], PlayerComponent);
                 return PlayerComponent;
+                var _a, _b, _c;
             }());
             exports_1("PlayerComponent", PlayerComponent);
         }

@@ -1,9 +1,37 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+const MONGO_URL = 'mongodb://quizuser:tm*7463649@ds045054.mongolab.com:45054/quiz?3t.uriVersion=2&3t.connectionMode=direct&readPreference=primary&3t.connection.name=MongoLab+-+Hello2';
+
+let express = require('express');
+let router = express.Router();
+let MongoClient = require('mongodb').MongoClient;
+let dbConnect = null;
 
 
+MongoClient.connect(MONGO_URL, function (err, db) {
+  if (!err) {
+    console.log("We are connected");
+    dbConnect = db;
+    db.collection("quiz", (err, collection) => {
+      if (!err) {
+        dbConnect = collection;
+        collection.find({}, (err, cursor) => {
+          let items = [];
+          cursor.forEach((item) =>{
+            if(item.tagLine) {
+              items.push(item);
+              console.log(item.tagLine);
+            }
+          });
+        });
+
+        collection.findOne({_id: 1}, (err, item) => {
+          console.log(item.tagLine);
+        });
+      }
+    });
+  }
+});
 
 const quizList =
   [
@@ -370,11 +398,26 @@ const quizList =
   ];
 
 /* GET api listing. */
-router.get('/quizzes', function (req, res, next) {
+router.get('/quiz', (req, res, next) => {
+  dbConnect.find({}, (err, cursor) => {
+    let items = [];
+    cursor.forEach((item) =>{
+      if(item.tagLine) {
+        items.push(item);
+        console.log(item.tagLine);
+      }
+    });
+    res.json(items);
+  });
+});
+
+
+
+router.get('/quizzes', (req, res, next) => {
   res.json(quizList);
 });
 
-router.get('/quiz/:id', function (req, res, next) {
+router.get('/quiz/:id', (req, res, next) => {
   let id = +req.params.id;
   let results = {};
 

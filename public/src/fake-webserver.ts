@@ -378,7 +378,7 @@ export class FakeWebServer {
     this.backend.connections.subscribe(c => {
       const singleQuizMatcher = /api\/quiz\/([0-9a-f]+)/i;
 
-      console.log("URL: " + c.request.url);
+      console.log("Fake Webserver - URL: " + c.request.url);
 
       if (c.request.url === "api/quizzes" && c.request.method === 0) {
         c.mockRespond(new Response({

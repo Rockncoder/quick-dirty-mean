@@ -25,7 +25,9 @@ export class QuizService implements IQuizService {
   // get all of the quizzes
   getQuizzes():Promise<IQuizList[]> {
     // construct our URL and make the ajax call, an observable is returned
-    return this.http.get(`${baseUrl}${quizzesEndPoint}`)
+    let url = `${baseUrl}${quizzesEndPoint}`;
+    console.log("Loading: " + url);
+    return this.http.get(url)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
@@ -33,7 +35,10 @@ export class QuizService implements IQuizService {
 
   // get a specific quiz
   getQuiz(id:string):Promise<IQuizList> {
-    return this.http.get(`${baseUrl}${quizEndPoint}${id}`)
+    let url = `${baseUrl}${quizEndPoint}${id}`;
+    console.log("Loading: " + url);
+
+    return this.http.get(url)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);

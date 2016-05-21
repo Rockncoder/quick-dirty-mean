@@ -46,14 +46,18 @@ System.register(['angular2/core', 'angular2/http', './fake-webserver', 'rxjs/Rx'
                 // get all of the quizzes
                 QuizService.prototype.getQuizzes = function () {
                     // construct our URL and make the ajax call, an observable is returned
-                    return this.http.get("" + baseUrl + quizzesEndPoint)
+                    var url = "" + baseUrl + quizzesEndPoint;
+                    console.log("Loading: " + url);
+                    return this.http.get(url)
                         .toPromise()
                         .then(this.extractData)
                         .catch(this.handleError);
                 };
                 // get a specific quiz
                 QuizService.prototype.getQuiz = function (id) {
-                    return this.http.get("" + baseUrl + quizEndPoint + id)
+                    var url = "" + baseUrl + quizEndPoint + id;
+                    console.log("Loading: " + url);
+                    return this.http.get(url)
                         .toPromise()
                         .then(this.extractData)
                         .catch(this.handleError);
@@ -72,9 +76,10 @@ System.register(['angular2/core', 'angular2/http', './fake-webserver', 'rxjs/Rx'
                 QuizService = __decorate([
                     core_1.Injectable(),
                     __param(1, core_1.Inject(fake_webserver_1.FakeWebServer)), 
-                    __metadata('design:paramtypes', [http_1.Http, fake_webserver_1.FakeWebServer])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object, fake_webserver_1.FakeWebServer])
                 ], QuizService);
                 return QuizService;
+                var _a;
             }());
             exports_1("QuizService", QuizService);
         }

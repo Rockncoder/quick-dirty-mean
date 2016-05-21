@@ -8,11 +8,13 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "rootDir": "./public/src"
+    "rootDir": "public/src"
   },
   "exclude": [
     "node_modules",
+    "public/typings",
     "typings/main",
-    "typings/main.d.ts"
+    "typings/main.d.ts",
+    "routes"
   ]
 }

@@ -158,9 +158,9 @@ export class PlayerComponent implements OnInit {
   };
 
   // reset the path back to the beginning
-  exit = () => {
-    this._router.navigate(['/about']);
-  };
+  // exit = () => {
+  //   this._router.navigate(['/about']);
+  // };
 }
 
 /*

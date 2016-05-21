@@ -7,9 +7,6 @@ import {HomeComponent} from './home';
 import {FakeWebServer} from './fake-webserver';
 
 
-let pirates = Array.from("happy pirates");
-console.log(pirates);
-
 bootstrap(HomeComponent, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,

@@ -2,7 +2,6 @@ System.register(['angular2/platform/browser', 'angular2/core', 'angular2/http/te
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var browser_1, core_1, testing_1, http_1, router_1, home_1, fake_webserver_1;
-    var pirates;
     return {
         setters:[
             function (browser_1_1) {
@@ -27,8 +26,6 @@ System.register(['angular2/platform/browser', 'angular2/core', 'angular2/http/te
                 fake_webserver_1 = fake_webserver_1_1;
             }],
         execute: function() {
-            pirates = Array.from("happy pirates");
-            console.log(pirates);
             browser_1.bootstrap(home_1.HomeComponent, [
                 http_1.HTTP_PROVIDERS,
                 router_1.ROUTER_PROVIDERS,
